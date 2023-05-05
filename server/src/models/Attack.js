@@ -1,22 +1,24 @@
-// create your User model here
 const { db, Sequelize } = require("../db/config");
 
-const User = db.define("User", {
+const Attack = db.define("Attack", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     allowNull: false,
     autoIncrement: true,
   },
-  username: {
+  title: {
     type: Sequelize.STRING,
-    unique: true,
     allowNull: false,
   },
-  password: {
-    type: Sequelize.STRING,
+  mojoCost: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  staminaCost: {
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
 });
 
-module.exports = User;
+module.exports = Attack;

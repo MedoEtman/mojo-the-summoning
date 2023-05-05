@@ -1,6 +1,6 @@
 const { describe, it, expect, beforeAll, afterAll } = require('@jest/globals')
-const { User } = require('.')
-const db = require('../db/config')
+const { User } = require('./index')
+const {db} = require('../db/config')
 
 // define in global scope
 let user
@@ -8,7 +8,8 @@ let user
 // clear db and create new user before tests
 beforeAll(async () => {
   await db.sync({ force: true })
-  user = await User.create({ username: 'gandalf' })
+  user = await User.create({ username: 'gandalf', password: 'Simon' })
+
 })
 
 // clear db after tests
